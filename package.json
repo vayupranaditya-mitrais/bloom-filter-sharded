@@ -1,0 +1,11 @@
+{
+  "name": "sharded-bit-manipulator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "I Gusti Bagus Vayupranaditya Putraadinatha",
+  "license": "ISC"
+}
