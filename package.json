@@ -7,5 +7,8 @@
     "test": "jest"
   },
   "author": "I Gusti Bagus Vayupranaditya Putraadinatha",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "murmurhash": "^2.0.0"
+  }
 }
