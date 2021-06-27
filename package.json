@@ -1,5 +1,5 @@
 {
-  "name": "sharded-bit-manipulator",
+  "name": "bloom-filter-sharded",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
