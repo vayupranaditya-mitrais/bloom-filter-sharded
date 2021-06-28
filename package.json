@@ -9,6 +9,24 @@
   "author": "I Gusti Bagus Vayupranaditya Putraadinatha",
   "license": "ISC",
   "dependencies": {
+    "jest-when": "^3.3.1",
     "murmurhash": "^2.0.0"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testRegex": "(/__test__/.*|(\\.|/)(test|spec))\\.[jt]sx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "verbose": true,
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.js"
+    ]
   }
 }
