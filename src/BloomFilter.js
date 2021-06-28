@@ -48,8 +48,9 @@ class BloomFilter {
 
     async check(value) {
         let indexes = await this.#getIndexes(value);
-        let setStatuses = await Promise.all(indexes.map(function(index) {
-            return this.content.get(index);
+        let setStatuses = await Promise.all(indexes.map(async function(index) {
+            let res = await this.content.get(index);
+            return res;
         }, this));
         return await setStatuses.every(status => status);
     }
@@ -63,8 +64,9 @@ class BloomFilter {
 
     async #getIndexes(value) {
         const hasher = new Hasher(this.hashCount);
-        return await Promise.all(hasher.hashes.map(function(hash) {
-            return hash(value) % this.storageSize;
+        return await Promise.all(hasher.getHashes().map(function(hash) {
+            let hashResult = hash(value);
+            return hashResult % this.storageSize;
         }, this));
     }
 }

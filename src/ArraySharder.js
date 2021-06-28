@@ -9,6 +9,7 @@ class ArraySharder {
         this.totalSize = totalSize;
         this.maxChunkSize = maxChunkSize;
         this.arrayCount = Math.ceil(totalSize / maxChunkSize);
+        if (this.arrayCount < 1) throw new Error('totalSize must be greater than 0');
         this.dir = dataDir;
 
         this.bitArrays = ArraySharder.constructAll(
@@ -38,6 +39,7 @@ class ArraySharder {
         let fileNumber = Math.floor(index / this.maxChunkSize);
         let contentIndex = (index % this.maxChunkSize) - 1
         this.bitArrays[fileNumber].set(contentIndex);
+        return {chunkNumber: fileNumber, elementIdx: contentIndex};
     }
 
     #createAll() {
@@ -49,7 +51,7 @@ class ArraySharder {
     static constructAll(arrayCount, maxChunkSize) {
         let bitArrays = new Array(arrayCount);
         for (let index = 0; index < bitArrays.length; index++) {
-            bitArrays[index] = new BitArray(index, maxChunkSize, 'bloomfilter_data');
+            bitArrays[index] = new BitArray(index, maxChunkSize, dataDir);
         }
         return bitArrays;
     }

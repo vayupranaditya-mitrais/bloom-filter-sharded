@@ -14,6 +14,10 @@ class Hasher {
         this.hashes = allHash.slice(0, count);
     }
 
+    getHashes() {
+        return this.hashes;
+    }
+
     static murmurV3(value) {
         return murmurhash.v3(value);
     }
